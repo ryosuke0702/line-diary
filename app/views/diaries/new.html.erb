@@ -1,0 +1,37 @@
+<h1><span class="red">N</span>ew diary</h1>
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/css/bootstrap-material-datetimepicker.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/locale/ja.js"></script><!-- moment.jsを使って日本語対応 -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/js/bootstrap-material-datetimepicker.min.js"></script>
+    
+    <script>
+      $(function(){
+      $("#picker").bootstrapMaterialDatePicker({
+      weekStart:0,
+      lang:"ja",
+      time:false,
+      format:"YYYY-MM-DD HH:mm"
+      });
+      });
+    </script>
+  </head>
+  <body>
+   <div class="well well-lg" >
+    <%= form_tag("/create") do %>
+    <%= text_field :diary, :place ,placeholder:"どこで"%>
+    <%= text_field :diary, :someone ,placeholder:"誰と"%>
+    <%= text_field :diary, :action ,placeholder:"何をした"%>
+    <%= label_tag "執筆日" %>
+    <input type="text" id="picker" ,placeholder:"執筆日">
+    <%= button_tag "作成",class: "btn btn-primary" %>
+    <% end %>
+   </div>
+  </body>
+</html>
