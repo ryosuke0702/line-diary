@@ -23,13 +23,12 @@
     </script>
   </head>
   <body>
-    <div class="well well-lg" >
+    <div class="well well" >
       <%= form_tag("/diaries/"+@diary.id.to_s,:method=>:patch) do %>
       <%= text_field :diary, :place %>
       <%= text_field :diary, :someone %>
       <%= text_field :diary, :action %>
-      <%= label_tag "執筆日" %>
-      <input type="text" id="picker">
+      <input type="text" id="picker" placeholder="執筆日">
       <%= button_tag "作成",class: "btn btn-primary"  %>
      <% end %>
     </div>

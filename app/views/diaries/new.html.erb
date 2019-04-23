@@ -23,13 +23,12 @@
     </script>
   </head>
   <body>
-   <div class="well well-lg" >
+   <div class="well well" >
     <%= form_tag("/create") do %>
     <%= text_field :diary, :place ,placeholder:"どこで"%>
     <%= text_field :diary, :someone ,placeholder:"誰と"%>
     <%= text_field :diary, :action ,placeholder:"何をした"%>
-    <%= label_tag "執筆日" %>
-    <input type="text" id="picker" ,placeholder:"執筆日">
+    <input type="text" id="picker" placeholder="執筆日">
     <%= button_tag "作成",class: "btn btn-primary" %>
     <% end %>
    </div>
