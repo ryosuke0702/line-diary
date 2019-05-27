@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   root to:"diaries#top"
   get "/index", to:"diaries#index"
   get "/new", to:"diaries#new"
@@ -6,4 +7,5 @@ Rails.application.routes.draw do
   delete "/diaries/:id", to:"diaries#destroy"
   get "/diaries/:id/edit", to:"diaries#edit"
   patch "/diaries/:id", to:"diaries#update"
+  get "/diaries/:id", to:"diaries#show"
 end

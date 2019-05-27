@@ -39,4 +39,9 @@ class DiariesController < ApplicationController
       flash[:success] = "Updated!"
       redirect_to "/index"
   end
+  
+  def show
+      @diary = Diary.find(params["id"])
+  end
 end
+
