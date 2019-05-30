@@ -21,11 +21,33 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             
-            <a class="navbar-brand" href="/">Top page</a>
-            <a class="navbar-brand" href="/index">Your history</a>
+            <a class="navbar-brand" href="/">Top</a>
+            <a class="navbar-brand" href="/index">History</a>
             <a class="navbar-brand" href="/new">New diary</a>
-           
-            <%= link_to "Log out", logout_path, method: :delete %>
+            
+            
+              <ul class="nav navbar-nav navbar-right">
+                <% if logged_in? %>
+                  <li><%= link_to "Users", users_path %></li>
+                  <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  Account <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                  <li><%= link_to "Profile", current_user %></li>
+                  <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+                  <li class="divider"></li>
+                  <li>
+                  <%= link_to "Log out", logout_path, method: :delete %>
+                  </li>
+                  </ul>
+                  </li>
+                  <% else %>
+                  <li><%= link_to "Log in", login_path %></li>
+                <% end %>
+              </ul>
+            
+            
             
           </div>
         </div><!-- /.container-fluid -->
@@ -38,25 +60,6 @@
       <%= yield %>
     </div>
   </body>
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#config-web-app -->
-
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyDAt5TAplgIluVszIFl4gRZMJsRYSjjS7k",
-    authDomain: "myfirstfire-8836f.firebaseapp.com",
-    databaseURL: "https://myfirstfire-8836f.firebaseio.com",
-    projectId: "myfirstfire-8836f",
-    storageBucket: "myfirstfire-8836f.appspot.com",
-    messagingSenderId: "736172712765",
-    appId: "1:736172712765:web:937772c3aeb1e29c"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-</script>
 </html>
 

@@ -1,0 +1,8 @@
+
+  <% provide(:title, 'All users') %>
+<h1><span class="red">A</span>ll accout</h1>
+  <table class="table table">
+    <% @user.each do |user| %>
+      <div class="well well" ><span class="content"><%= link_to render user %></span></div>  
+    <% end %>
+  </table>

@@ -1,4 +1,5 @@
 class DiariesController < ApplicationController
+ 
   def index
       @diaries = Diary.all
   end
@@ -42,6 +43,9 @@ class DiariesController < ApplicationController
   
   def show
       @diary = Diary.find(params["id"])
+      #@user = User.find(params["id"])
+      #user.name = params["user"]["name"]
+      #@user = User.find(params["id"])
   end
 end
 
